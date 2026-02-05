@@ -2,7 +2,7 @@
 
 A highly available, fault-tolerant web application infrastructure on AWS that automatically recovers from failures with zero downtime. Built with Multi-AZ redundancy, Auto Scaling, and RDS Multi-AZ database replication.
 
-![Application Screenshot](screenshots/16-application-working.png)
+[Application Screenshot](screenshots/27-application-full-page-93-visits.png)
 
 ## 📊 Project Metrics
 
