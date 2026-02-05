@@ -845,13 +845,13 @@ echo "🚀 Ubuntu web server with database configured at $(date)" >> /var/log/us
 ### Infrastructure Setup
 
 **VPC & Networking**
-- [VPC Created](screenshots/01-vpc-created.png) - Production VPC with CIDR 10.0.0.0/16
-- [Internet Gateway](screenshots/02-igw-created.png) - IGW attached to VPC
-- [All Subnets Created](screenshots/03-all-subnets-created.png) - 6 subnets across 2 AZs
-- [NAT Gateway Available](screenshots/04-nat-gateway-available.png) - NAT Gateway with Elastic IP
-- [Public Route Table](screenshots/05-public-route-table.png) - Routes to Internet Gateway
-- [Private Route Table](screenshots/06-private-route-table.png) - Routes to NAT Gateway
-- [Data Route Table](screenshots/07-data-route-table.png) - Database tier routing
+![VPC Created](screenshots/01-vpc-created.png) - Production VPC with CIDR 10.0.0.0/16
+![Internet Gateway](screenshots/02-igw-created.png) - IGW attached to VPC
+![All Subnets Created](screenshots/03-all-subnets-created.png) - 6 subnets across 2 AZs
+![NAT Gateway Available](screenshots/04-nat-gateway-available.png) - NAT Gateway with Elastic IP
+![Public Route Table](screenshots/05-public-route-table.png) - Routes to Internet Gateway
+![Private Route Table](screenshots/06-private-route-table.png) - Routes to NAT Gateway
+![Data Route Table](screenshots/07-data-route-table.png) - Database tier routing
 
 **Security**
 - [Public Instance Working](screenshots/08-public-instance-working.png) - Test instance validation
