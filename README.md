@@ -2,7 +2,7 @@
 
 A highly available, fault-tolerant web application infrastructure on AWS that automatically recovers from failures with zero downtime. Built with Multi-AZ redundancy, Auto Scaling, and RDS Multi-AZ database replication.
 
-![Application Screenshot](screenshots/16-application-working.png)
+![Architecture Diagram](architecture-diagram.png)
 
 ## 📊 Project Metrics
 
@@ -845,47 +845,66 @@ echo "🚀 Ubuntu web server with database configured at $(date)" >> /var/log/us
 ### Infrastructure Setup
 
 **VPC & Networking**
-- [VPC Created](screenshots/01-vpc-created.png)
-- [Internet Gateway](screenshots/02-igw-created.png)
-- [ALB Subnets](screenshots/03-alb-subnets-created.png)
-- [NAT Gateway with EIP](screenshots/04-nat-gateway-with-eip.png)
-- [Public Route Table](screenshots/05-public-route-table.png)
-- [Private Route Table](screenshots/06-private-route-table.png)
-- [Data Route Table](screenshots/07-data-route-table.png)
+![VPC Created](screenshots/01-vpc-created.png) - Production VPC with CIDR 10.0.0.0/16
+
+![Internet Gateway](screenshots/02-igw-created.png) - IGW attached to VPC
+
+![All Subnets Created](screenshots/03-all-subnets-created.png) - 6 subnets across 2 AZs
+
+![NAT Gateway Available](screenshots/04-nat-gateway-available.png) - NAT Gateway with Elastic IP
+
+![Public Route Table](screenshots/05-public-route-table.png) - Routes to Internet Gateway
+
+![Private Route Table](screenshots/06-private-route-table.png) - Routes to NAT Gateway
+
+![Data Route Table](screenshots/07-data-route-table.png) - Database tier routing
 
 **Security**
-- [Public Instance Working](screenshots/08-public-instance-working.png)
-- [Security Groups](screenshots/09-security-groups-production.png)
+![Public Instance Working](screenshots/08-public-instance-working.png) - Test instance validation
+
+![Security Groups](screenshots/09-security-groups-production.png) - All 3 security groups configured
 
 **Load Balancing**
-- [Target Group Created](screenshots/10-target-group-created.png)
-- [ALB Created](screenshots/11-alb-created.png)
-- [ALB Initial State](screenshots/12-alb-no-targets.png)
-- [Target Group Healthy](screenshots/15-target-group-healthy.png)
+![Target Group Created](screenshots/10-target-group-created.png) - HTTP health checks configured
+
+![ALB Created](screenshots/11-alb-created.png) - Internet-facing load balancer
+
+![ALB Initial State](screenshots/12-alb-no-targets.png) - Before instance registration
+
+![Target Group Healthy](screenshots/15-target-group-healthy.png) - 2 healthy targets
 
 **Auto Scaling**
-- [Launch Template](screenshots/13-launch-template-created.png)
-- [ASG Created](screenshots/14-asg-created.png)
-- [Launch Template v2](screenshots/21-launch-template-v2.png)
-- [Instance Refresh](screenshots/22-instance-refresh.png)
-- [EC2 Instances Running](screenshots/23-ec2-instances-running.png)
-- [ASG Configuration](screenshots/24-asg-details-configuration.png)
+![Launch Template Created](screenshots/13-launch-template-created.png) - Initial template with user data
+
+![ASG Created](screenshots/14-asg-created.png) - Auto Scaling Group configuration
+
+![Launch Template v2](screenshots/21-launch-template-v2.png) - Updated with database credentials
+
+![Instance Refresh](screenshots/22-instance-refresh.png) - Rolling update process
+
+![Instances Running](screenshots/23-instance-running.png) - EC2 instances in both AZs
+
+![ASG Details](screenshots/24-asg-details-configuration.png) - Capacity and health check settings
 
 **Database**
-- [DB Subnet Group](screenshots/18-db-subnet-group.png)
-- [RDS Creating](screenshots/19-rds-creating.png)
-- [RDS Available Multi-AZ](screenshots/20-rds-available-multi-az.png)
-- [RDS Multi-AZ Configuration](screenshots/25-rds-multi-az-configuration.png)
+![DB Subnet Group](screenshots/18-db-subnet-group.png) - RDS subnet configuration
+
+![RDS Creating](screenshots/19-rds-creating.png) - Database deployment in progress
+
+![RDS Available Multi-AZ](screenshots/20-rds-available-multi-az.png) - Database operational
+
+![RDS Multi-AZ Configuration](screenshots/25-rds-multi-az-configuration.png) - Multi-AZ settings confirmed
 
 **Monitoring**
-- [CloudWatch Dashboard](screenshots/26-cloudwatch-dashboard-full.png)
+![CloudWatch Dashboard](screenshots/26-cloudwatch-dashboard-full.png) - Real-time metrics for all components
 
 **Application**
-- [Application Working](screenshots/16-application-working.png)
-- [Full Application with 93+ Visits](screenshots/27-application-full-page-93-visits.png)
+![Application Working](screenshots/16-application-working.png) - Initial application deployment
 
-**Testing**
-- [Self-Healing Test](screenshots/17-self-healing-test.png)
+![Full Application - 93 Visits](screenshots/27-application-full-page-93-visits.png) - Production application with database connectivity, Multi-AZ load distribution, and visit tracking
+
+**Testing & Validation**
+![Self-Healing Test](screenshots/17-self-healing-test.png) - Instance termination and recovery validation
 
 ## 🎓 Key Learnings
 
